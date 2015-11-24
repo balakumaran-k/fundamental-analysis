@@ -60,7 +60,8 @@ var j = schedule.scheduleJob('*/5 * * * * *', function() {
       broadcastError(script, 'Error message');
 });
 
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+//server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+server.listen(process.env.OPENSHIFT_NODEJS_PORT|| process.env.PORT || 3000, process.env.OPENSHIFT_NODEJS_IP || process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
 });
